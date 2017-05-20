@@ -4,9 +4,8 @@ import android.arch.lifecycle.LifecycleActivity
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.widget.TextView
-import java.util.*
-
+import kotlinx.android.synthetic.main.activity_main.textView
+import java.util.Date
 
 class MainActivity : LifecycleActivity() {
 
@@ -14,11 +13,8 @@ class MainActivity : LifecycleActivity() {
         super.onCreate(b)
         setContentView(R.layout.activity_main)
 
-        val t = findViewById(R.id.textView) as TextView
-
         val viewModel = ViewModelProviders.of(this).get(DateModel::class.java)
-
-        viewModel.date.observe(this, Observer<Date> { date -> t.text = date.toString() })
+        viewModel.date.observe(this, Observer<Date> { date -> textView.text = date.toString() })
     }
 }
 

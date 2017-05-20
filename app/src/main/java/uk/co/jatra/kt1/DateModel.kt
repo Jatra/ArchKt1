@@ -10,7 +10,6 @@ internal class DateModel : ViewModel() {
     private val TAG : String = "DateModel"
 
     val date = MutableLiveData<Date>()
-
     init {
         this.date.value = Date(0)
         object : Thread() {
@@ -24,7 +23,6 @@ internal class DateModel : ViewModel() {
                     try {
                         Thread.sleep(500)
                     } catch (e: InterruptedException) {
-                        //
                     }
                 }
             }
